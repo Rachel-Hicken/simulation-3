@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export default class Auth extends Component {
     constructor() {
         super()
         this.state = {
             username: '',
-            password: ''
+            pass: ''
         }
         this.createUser = this.createUser.bind(this);
     }
@@ -16,17 +17,17 @@ export default class Auth extends Component {
     }
 
     passwordHandler(value) {
-        this.setState({ password: value })
+        this.setState({ pass: value })
     }
 
     createUser( event ) {
-        const { username, password } = this.state;
+        const { username, pass } = this.state;
         if ( event.key === "Enter" && username.length !== 0 ) {
-          axios.post( '/', { username } ).then( response => {
-            this.setState({ username: response.data });
+          axios.post( '/', { username, pass } ).then( response => {
+            this.setState({ username: response.data, pass: response.data });
           });
     
-          this.setState({ username: '' });
+          this.setState({ username: '' , pass: ''});
         }
       }
 

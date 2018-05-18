@@ -18,7 +18,7 @@ massive(CONNECTION_STRING).then((db)=>{
     app.set('db',db);
 })
 
-app.post('http:/', controller.create);
+app.post('/', controller.create);
 
 
 
