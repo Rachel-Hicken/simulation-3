@@ -3,19 +3,22 @@ const express = require('express'),
       massive = require('massive');
 require('dotenv').config();
 
+const controller = require('./controller');
+
 const{
     SERVER_PORT,
     CONNECTION_STRING
 }= process.env
 
 const app = express()
+app.use(bodyParser.json());
 
 massive(CONNECTION_STRING).then((db)=>{
     console.log('connected to db');
     app.set('db',db);
 })
 
-app.use(bodyParser.json());
+app.post('http:/', controller.create);
 
 
 
