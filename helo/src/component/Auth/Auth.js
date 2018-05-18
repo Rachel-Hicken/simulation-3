@@ -41,7 +41,7 @@ export default class Auth extends Component {
 
       getUser() {
         axios.get( '/auth/:id' ).then( response => {
-          this.setState({ username: response.data, pass: response.data });
+          this.setState({ username: response.data.username, pass: response.data.pass });
         });
       }
 
