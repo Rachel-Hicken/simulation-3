@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types'
+import { withRouter } from 'react-router'
 
 
-export default class Auth extends Component {
+export default class Auth extends Component { 
+    static propTypes = {
+        match: PropTypes.object.isRequired,
+        location: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired
+      }
     constructor() {
         super()
         this.state = {
@@ -39,8 +46,10 @@ export default class Auth extends Component {
       }
 
     render() {
+        const { match, location, history } = this.props
         return (
             <div>
+                 <div>You are now at {location.pathname}</div>
                 <input className="username"
                     placeholder="username"
                     onChange={(e) => this.usernameHandler(e.target.value)}
