@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
+
 
 export default class Auth extends Component {
     constructor() {
@@ -10,6 +10,7 @@ export default class Auth extends Component {
             pass: ''
         }
         this.createUser = this.createUser.bind(this);
+        this.getUser = this.getUser.bind(this);
     }
 
     usernameHandler(value) {
@@ -31,9 +32,15 @@ export default class Auth extends Component {
         }
       }
 
+      getUser() {
+        axios.get( '/auth/:id' ).then( response => {
+          this.setState({ username: response.data, pass: response.data });
+        });
+      }
+
     render() {
         return (
-            <div>Auth
+            <div>
                 <input className="username"
                     placeholder="username"
                     onChange={(e) => this.usernameHandler(e.target.value)}
@@ -42,8 +49,8 @@ export default class Auth extends Component {
                     placeholder="password"
                     onChange={(e) => this.passwordHandler(e.target.value)}
                     type="text" />
-                <button onClick={this.createUser}>Login</button>
-                <button>Register</button>
+                <button onClick={this.getUser}>Login</button>
+                <button onClick={this.createUser}>Register</button>
             </div>
         )
     }

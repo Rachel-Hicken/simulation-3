@@ -19,6 +19,7 @@ massive(CONNECTION_STRING).then((db)=>{
 })
 
 app.post('/', controller.create);
+app.get('/auth/:id', controller.readUser);
 
 
 

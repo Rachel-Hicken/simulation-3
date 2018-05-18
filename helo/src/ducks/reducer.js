@@ -5,9 +5,9 @@ const initial_state = {
 }
 
 
-UPDATE_USERNAME = 'UPDATE_USERNAME';
-UPDATE_ID = 'UPDATE_ID';
-UPDATE_IMG = 'UPDATE_IMG';
+const UPDATE_USERNAME = 'UPDATE_USERNAME';
+const UPDATE_ID = 'UPDATE_ID';
+const UPDATE_IMG = 'UPDATE_IMG';
 
 export function update_username(username) {
     return {
