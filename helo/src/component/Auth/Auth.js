@@ -30,7 +30,7 @@ export default class Auth extends Component {
 
     createUser( event ) {
         const { username, pass } = this.state;
-        if ( event.key === "Enter" && username.length !== 0 ) {
+        if (username.length !== 0 ) {
           axios.post( '/', { username, pass } ).then( response => {
             this.setState({ username: response.data, pass: response.data });
           });

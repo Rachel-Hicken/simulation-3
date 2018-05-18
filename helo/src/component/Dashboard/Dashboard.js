@@ -10,14 +10,6 @@ export default class Dashboard extends Component{
         this.resetHandler = this.resetHandler.bind(this);
     }
     
-    // componentDidMount(){
-    //     axios.get('/auth/:id').then(res=>{
-    //       this.setState({
-    //         user: res.data
-    //       })
-    //     })
-    //   }
-    
 changeHandler(value){
     this.setState({
         search: value
@@ -38,7 +30,6 @@ resetHandler(){
                 type="text" />
                 <button>Search</button>
                 <button onClick={this.resetHandler}>Reset</button>
-                {/* {this.state.user} */}
             </div>
             
         )
